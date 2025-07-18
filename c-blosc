@@ -1,0 +1,17 @@
+bottle="https://github.com/pepijn-devries/bundler/releases/download/c-blosc-1.21.6/c-blosc-1.21.6-universal.tar.xz"
+
+# Skip if disabled
+if [ "$DISABLE_AUTOBREW" ]; then return 0; fi
+echo "Using autobrew bundle: $(basename $bottle)"
+
+# General setup
+BREWDIR="$PWD/.deps"
+mkdir -p $BREWDIR
+curl -sSL $bottle -o libs.tar.xz
+tar -xf libs.tar.xz --strip 1 -C $BREWDIR && rm -f libs.tar.xz
+PKG_CFLAGS="-I${BREWDIR}/include"
+PKG_LIBS="-L${BREWDIR}/lib -llz4 -lzstd -lz"
+
+# Cleanup
+echo "rm -Rf .deps" >> cleanup
+chmod +x cleanup
