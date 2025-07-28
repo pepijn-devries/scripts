@@ -1,4 +1,5 @@
-bottle="https://github.com/pepijn-devries/bundler/releases/download/c-blosc-1.21.6/c-blosc-1.21.6-universal.tar.xz"
+## TODO Select tarball based on architecture and version
+bottle="https://mac.r-project.org/bin/darwin20/arm64/blosc-1.21.6-darwin.20-arm64.tar.xz"
 
 # Skip if disabled
 if [ "$DISABLE_AUTOBREW" ]; then return 0; fi
