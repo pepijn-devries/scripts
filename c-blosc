@@ -10,7 +10,7 @@ mkdir -p $BREWDIR
 curl -sSL $bottle -o libs.tar.xz
 tar -xf libs.tar.xz --strip 1 -C $BREWDIR && rm -f libs.tar.xz
 PKG_CFLAGS="-I${BREWDIR}/include"
-PKG_LIBS="-L${BREWDIR}/lib -llz4 -lzstd -lz"
+PKG_LIBS="-L${BREWDIR}/lib -lliblz4 -llibzstd -llibz"
 
 # Cleanup
 echo "rm -Rf .deps" >> cleanup
